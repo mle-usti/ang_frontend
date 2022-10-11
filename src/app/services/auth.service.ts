@@ -30,8 +30,8 @@ export class AuthService {
     getTimeOutS():string{
         return localStorage.getItem('timeout_s') || '{}';
     }
-    getLogin(): string {
-        return localStorage.getItem("loggedin") || '{}';
+    getLogin() {
+        return localStorage.getItem("loggedin");
     }
     clearStorage(value:string) {
         localStorage.removeItem(value);
