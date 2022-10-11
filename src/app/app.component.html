@@ -1,0 +1,207 @@
+<div
+  style="height: 100vh"
+  [ngClass]="{ 'dark-theme': isDarkTheme }"
+  class="mat-app-background main-div"
+>
+  <mat-toolbar class="toolbarNav" color="primary">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <!-- <button mat-icon-button (click)="sidenav.toggle()"> -->
+      <!-- <mat-icon>menu</mat-icon> -->
+      <!-- </button> -->
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="sidenav.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <a mat-button class="companyName" routerLink="/profile">
+      <span class="font-overpass lg:text-xl md:text-base sm:text-base text-sm">
+        Livestock Identification
+      </span>
+    </a>
+
+    <div fxShow="true" fxHide.lt-md="true" class="md:text-base sm:text-base">
+      <a
+        mat-button
+        class="font-overpass"
+        routerLink="/profile"
+        routerLinkActive="font-bold"
+        >Profile</a
+      >
+      <a mat-button class="font-overpass" routerLink="/animals">Prices</a>
+      <a mat-button class="font-overpass" routerLink="/start-page"
+        >Start page</a
+      >
+      <a mat-button class="font-overpass" routerLink="/offer">Offer</a>
+      <a mat-button class="font-overpass" routerLink="/contact">Contact</a>
+    </div>
+    <mat-slide-toggle
+      [(ngModel)]="isDarkTheme"
+      (change)="storeThemeSelection()"
+    >
+      <span class="font-overpass" *ngIf="this.isDarkTheme; else templateName"
+        >Dark Mode</span
+      >
+      <ng-template #templateName>Light Mode</ng-template>
+    </mat-slide-toggle>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav
+      color="primary"
+      #sidenav
+      fxLayout="column"
+      mode="over"
+      opened="false"
+      fxHide.gt-sm="true"
+    >
+      <div fxLayout="column">
+        <a mat-button routerLink="/about-us">About us</a>
+        <a mat-button routerLink="/prices">Prices</a>
+        <a mat-button routerLink="/start-page">Start page</a>
+        <a mat-button routerLink="/offer">Offer</a>
+        <a mat-button routerLink="/contact">Contact</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<!-- <div
+  style="height: 100vh"
+  [ngClass]="{ 'dark-theme': isDarkTheme }"
+  class="mat-app-background"
+>
+  <mat-toolbar color="primary" class="toolbarNav">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+
+    <a mat-button class="companyName" routerLink="/">
+      <span class="md:text-sm text-4xl sm:text-base">Site name</span>
+    </a>
+
+    <div fxShow="true" fxHide.lt-md="true">
+      <a mat-button routerLink="/about-us">About us</a>
+      <a mat-button routerLink="/prices">Prices</a>
+      <a mat-button routerLink="/start-page">Start page</a>
+      <a mat-button routerLink="/offer">Offer</a>
+      <a mat-button routerLink="/contact">Contact</a>
+    </div>
+    <span>
+      <mat-slide-toggle> <span></span> Mode </mat-slide-toggle>
+    </span>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav
+      color="primary"
+      #sidenav
+      fxLayout="column"
+      mode="over"
+      opened="false"
+      fxHide.gt-sm="true"
+    >
+      <div fxLayout="column">
+        <a mat-button routerLink="/about-us">About us</a>
+        <a mat-button routerLink="/prices">Prices</a>
+        <a mat-button routerLink="/start-page">Start page</a>
+        <a mat-button routerLink="/offer">Offer</a>
+        <a mat-button routerLink="/contact">Contact</a>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill> Awesome content </mat-sidenav-content>
+  </mat-sidenav-container>
+</div> -->
+
+<!-- <div [ngClass]="{ 'dark-theme': isDarkTheme }" class="mat-app-background">
+  <p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+          (click)="toggleNavbar()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-slide-toggle
+          [(ngModel)]="isDarkTheme"
+          (change)="storeThemeSelection()"
+        >
+          <span></span> Mode
+        </mat-slide-toggle>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <span>Second Line</span>
+        <span class="example-spacer"></span>
+        <button
+          mat-icon-button
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </p> -->
+
+<!-- <mat-toolbar color="primary">
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <div
+      [ngClass]="{ hidden: !showMenu, flex: showMenu }"
+      class="lg:flex lg:flex-grow items-center"
+    >
+      <mat-toolbar-row>
+        <span>Second Line</span>
+        <span class="example-spacer"></span>
+        <button
+          mat-icon-button
+          class="example-icon favorite-icon"
+          aria-label="Example icon-button with heart icon"
+        >
+          <mat-icon>favorite</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+        >
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </div>
+
+    <button
+      class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+      type="button"
+      (click)="toggleNavbar()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-slide-toggle
+      [(ngModel)]="isDarkTheme"
+      (change)="storeThemeSelection()"
+    >
+      <span></span> Mode
+    </mat-slide-toggle>
+  </mat-toolbar> -->
+<!-- <router-outlet></router-outlet>
+</div> -->

@@ -1,0 +1,41 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+$frontend-primary: mat.define-palette(mat.$indigo-palette);
+$frontend-accent: mat.define-palette(mat.$light-green-palette, A200, A100, A400);
+$frontend-warn: mat.define-palette(mat.$red-palette);
+
+
+//  dark theme 
+
+$frontend-primary-dark: mat.define-palette(mat.$orange-palette);
+$frontend-accent-dark: mat.define-palette(mat.$yellow-palette, A200, A100, A400);
+$frontend-warn-dark : mat.define-palette(mat.$red-palette);
+
+
+
+$frontend-theme: mat.define-light-theme((
+  color: (
+    primary: $frontend-primary,
+    accent: $frontend-accent,
+    warn: $frontend-warn,
+  )
+));
+
+
+$frontend-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $frontend-primary-dark,
+    accent: $frontend-accent-dark,
+    warn: $frontend-warn-dark,
+  )
+));
+
+.dark-theme {
+  @include mat.all-component-themes($frontend-theme-dark)
+}
+
+@include mat.all-component-themes($frontend-theme);
+
