@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AnimalsComponent } from './main/animals/animals.component';
 import { LoginComponent } from './main/login/login.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -18,6 +19,11 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate:[AuthGuardService] 
   },
+  {
+    path:'animals',
+    component:AnimalsComponent,
+    canActivate:[AuthGuardService]
+  }
 ];
 
 @NgModule({

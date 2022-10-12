@@ -1,1 +1,51 @@
-<p>animals works!</p>
+<div class="mt-3">
+  <mat-tab-group>
+    <mat-tab label="Home">
+      <ng-template matTabContent>
+        <div class="animals-grid my-4">
+          <mat-card
+            *ngFor="let item of animalsPerPage; let i = index"
+            class="text-center"
+          >
+            <mat-card-header>
+              <div mat-card-avatar></div>
+              <mat-card-title class="mb-4"
+                >{{ item.animal_tag }}
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <img
+                mat-card-image
+                class="h-20"
+                [src]="item?.data_loc"
+                alt="Photo of a Shiba Inu"
+              />
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button mat-raised-button color="warn">Delete</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+        <mat-paginator
+          [length]="this.animals.length"
+          [pageSize]="6"
+          [pageSizeOptions]="[6, 9, 12]"
+          aria-label="Select page"
+          (page)="onPageChange($event)"
+        >
+        </mat-paginator>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Second">
+      <ng-template matTabContent>
+        <div></div>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="Third">
+      <ng-template matTabContent>
+        <div></div>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

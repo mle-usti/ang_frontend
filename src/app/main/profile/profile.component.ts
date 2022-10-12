@@ -42,12 +42,10 @@ export class ProfileComponent implements OnInit {
       next: (res:any) => {
         console.log(res);
         this.name_user = res.full_name
-        console.log(this._auth.getTimeOutS());
         this.StartTimer()
       },
       error: (e) => {
         console.log(e)
-        
       } 
     });
   }
@@ -71,8 +69,6 @@ export class ProfileComponent implements OnInit {
       
       setTimeout(x => 
         {
-          
-          console.log("TIMEOUT",this.timer);
           if(this.timer>0){
             this.timer -= 1;
             this._auth.setDataInLocalStorage("timeout_s",this.timer)
@@ -82,7 +78,6 @@ export class ProfileComponent implements OnInit {
           {
             this._auth.clearStorage("timeout_s")
             this.logout()
-            alert("OK")
           }
         }, 1000);
       }
@@ -90,7 +85,5 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnDestroy() {
-    console.log("ENDED");
-    
   }
 }

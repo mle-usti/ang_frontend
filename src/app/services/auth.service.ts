@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class AuthService {
     isLoggedIn: boolean = false;
     constructor() {
-        console.log(this.getTimeOut());
         
     }
 

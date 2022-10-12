@@ -34,10 +34,6 @@ button {
   flex: 1 1 auto;
 }
 
-.mat-sidenav-content {
-  font-size: 100%;
-  text-align: center;
-}
 .toolbarNav {
   display: flex;
   justify-content: space-between;
@@ -47,6 +43,7 @@ button {
   display: flex;
   flex-direction: column;
 }
+
 @media screen and (max-width: 950px) {
   /* .toolbarNav {
     position: fixed;

@@ -17,7 +17,11 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <a mat-button class="companyName" routerLink="/profile">
+    <a
+      mat-button
+      class="companyName font-semibold tracking-tight"
+      routerLink="/profile"
+    >
       <span class="font-overpass lg:text-xl md:text-base sm:text-base text-sm">
         Livestock Identification
       </span>
@@ -29,27 +33,49 @@
         class="font-overpass"
         routerLink="/profile"
         routerLinkActive="font-bold"
-        >Profile</a
       >
-      <a mat-button class="font-overpass" routerLink="/animals">Prices</a>
-      <a mat-button class="font-overpass" routerLink="/start-page"
-        >Start page</a
-      >
-      <a mat-button class="font-overpass" routerLink="/offer">Offer</a>
-      <a mat-button class="font-overpass" routerLink="/contact">Contact</a>
+        Profile
+      </a>
+      <a mat-button class="font-overpass" routerLink="/animals">Animals</a>
     </div>
-    <mat-slide-toggle
-      [(ngModel)]="isDarkTheme"
-      (change)="storeThemeSelection()"
-    >
-      <span class="font-overpass" *ngIf="this.isDarkTheme; else templateName"
+    <div>
+      <!-- <span *ngIf="this.isDarkTheme; else lightButton">
+        <fa-icon [icon]="faMoon"></fa-icon>
+        Dark Mode
+      </span>
+      <ng-template #lightButton>
+        <span>
+          <fa-icon [icon]="faSun"></fa-icon>
+          Light Mode
+        </span>
+      </ng-template> -->
+    </div>
+    <div>
+      <ng-template #lightButton>
+        <span class="font-overpass">
+          <fa-icon [icon]="faSun"></fa-icon>
+          Light
+        </span>
+      </ng-template>
+      <mat-slide-toggle
+        [(ngModel)]="isDarkTheme"
+        (change)="storeThemeSelection()"
+      >
+        <span *ngIf="this.isDarkTheme; else lightButton" class="font-overpass">
+          <fa-icon [icon]="faMoon"></fa-icon>
+          Dark
+        </span>
+
+        <!-- <span class="font-overpass" *ngIf="this.isDarkTheme; else templateName"
         >Dark Mode</span
       >
-      <ng-template #templateName>Light Mode</ng-template>
-    </mat-slide-toggle>
+      <ng-template #templateName>Light Mode</ng-template> -->
+      </mat-slide-toggle>
+    </div>
   </mat-toolbar>
   <mat-sidenav-container fxFlexFill class="example-container">
     <mat-sidenav
+      class="pt-5"
       color="primary"
       #sidenav
       fxLayout="column"
@@ -58,11 +84,8 @@
       fxHide.gt-sm="true"
     >
       <div fxLayout="column">
-        <a mat-button routerLink="/about-us">About us</a>
-        <a mat-button routerLink="/prices">Prices</a>
-        <a mat-button routerLink="/start-page">Start page</a>
-        <a mat-button routerLink="/offer">Offer</a>
-        <a mat-button routerLink="/contact">Contact</a>
+        <a mat-button routerLink="/profile">Profile</a>
+        <a mat-button routerLink="/animals">Animals</a>
       </div>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill>

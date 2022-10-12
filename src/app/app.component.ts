@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'frontend';
   showMenu = false;
-  isDarkTheme: boolean = false;
+  isDarkTheme: boolean = true;
   ngOnInit() {
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true:false;
   }
@@ -20,4 +20,6 @@ export class AppComponent {
   toggleNavbar(){
     this.showMenu = !this.showMenu;
   }
+  faMoon = faMoon;
+  faSun = faSun;
 }

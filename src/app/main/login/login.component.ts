@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
     public theme: AppComponent
   ) { 
     this.form = this.fb.group({
-    username: ['', Validators.required],
-    password:['', Validators.required]
+    username: ['MZaidA', Validators.required],
+    password:['abc123', Validators.required]
   });
 }
 
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
         }
       },
       error: (e) => {
-        console.log(e.error);
+        // console.log(e.error);
         this.loggedInError = true;
         this.errorLogin = e.error.detail
       }

@@ -12,7 +12,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -23,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AnimalsComponent } from './main/animals/animals.component'
+import { AnimalsComponent } from './main/animals/animals.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -47,11 +50,15 @@ import { AnimalsComponent } from './main/animals/animals.component'
     MatSelectModule,
     MatOptionModule,
     MatSidenavModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatPaginatorModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FontAwesomeModule
   ],
   providers: [
     {
