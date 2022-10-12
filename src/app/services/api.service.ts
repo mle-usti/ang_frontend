@@ -14,7 +14,7 @@ const httpOptions = {
 export class ApiService {
   
 
-  private REST_API_SERVER = "http://192.168.102.188:8000/";
+  private REST_API_SERVER = "http://127.0.0.1:8000/";
   constructor(private httpClient: HttpClient) { }
 
   getTypeRequest(url:string) {

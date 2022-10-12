@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
@@ -6,6 +6,7 @@ import {ApiService} from '../../services/api.service'
 import { Observable } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
+import {WebcamInitError} from 'ngx-webcam';
 @Component({
   selector: 'app-animals',
   templateUrl: './animals.component.html',
@@ -17,7 +18,7 @@ export class AnimalsComponent implements OnInit {
   panelOpenState = false;
   faUpload = faUpload
   isCam: boolean = false;
-  
+  initError!: EventEmitter<WebcamInitError>
   // pages: number = this.animals.length/this.animalsPerPage
   constructor(private _api : ApiService, private _auth: AuthService) { }
 
@@ -73,5 +74,11 @@ export class AnimalsComponent implements OnInit {
   }
   openCam() {
     this.isCam = !this.isCam;
+  }
+  
+  handleInitError(error: WebcamInitError): void {
+    if (error.mediaStreamError && error.mediaStreamError.name === "NotAllowedError") {
+      console.warn("Camera access was not allowed by user!");
+    }
   }
 }
