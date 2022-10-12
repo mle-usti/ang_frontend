@@ -14,7 +14,9 @@ export class AppComponent {
     this.isDarkTheme = localStorage.getItem('theme') === "Dark" ? true:false;
   }
   storeThemeSelection() {
+    this.isDarkTheme = !this.isDarkTheme
     localStorage.setItem("theme", this.isDarkTheme?"Dark":"Light")
+
   }
   
   toggleNavbar(){

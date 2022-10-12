@@ -17,15 +17,24 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <a
-      mat-button
-      class="companyName font-semibold tracking-tight"
-      routerLink="/profile"
-    >
-      <span class="font-overpass lg:text-xl md:text-base sm:text-base text-sm">
+
+    <div class="flex items-center cursor-pointer" routerLink="/profile">
+      <div class="lg:h-14 md:h-12 sm:h-10 h-9">
+        <img
+          src="assets/logo.svg"
+          alt="logo"
+          class="h-full"
+          [ngStyle]="{
+            filter: !this.isDarkTheme
+              ? 'brightness(0) invert(1)'
+              : 'brightness(0%)'
+          }"
+        />
+      </div>
+      <div class="font-overpass lg:text-xl md:text-base sm:text-base text-sm">
         Livestock Identification
-      </span>
-    </a>
+      </div>
+    </div>
 
     <div fxShow="true" fxHide.lt-md="true" class="md:text-base sm:text-base">
       <a
@@ -36,7 +45,13 @@
       >
         Profile
       </a>
-      <a mat-button class="font-overpass" routerLink="/animals">Animals</a>
+      <a
+        mat-button
+        class="font-overpass"
+        routerLinkActive="font-bold"
+        routerLink="/animals"
+        >Animals</a
+      >
     </div>
     <div>
       <!-- <span *ngIf="this.isDarkTheme; else lightButton">
@@ -51,26 +66,28 @@
       </ng-template> -->
     </div>
     <div>
+      <!-- <mat-slide-toggle
+        [(ngModel)]="isDarkTheme"
+        (change)="storeThemeSelection()"
+      > -->
+      <button mat-icon-button (click)="storeThemeSelection()">
+        <fa-icon [icon]="faMoon" *ngIf="this.isDarkTheme == false"></fa-icon>
+        <fa-icon [icon]="faSun" *ngIf="this.isDarkTheme == true"></fa-icon>
+      </button>
+      <!-- <span class="font-overpass" *ngIf="this.isDarkTheme; else lightButton">
+        Dark
+      </span>
       <ng-template #lightButton>
         <span class="font-overpass">
           <fa-icon [icon]="faSun"></fa-icon>
           Light
         </span>
-      </ng-template>
-      <mat-slide-toggle
-        [(ngModel)]="isDarkTheme"
-        (change)="storeThemeSelection()"
-      >
-        <span *ngIf="this.isDarkTheme; else lightButton" class="font-overpass">
-          <fa-icon [icon]="faMoon"></fa-icon>
-          Dark
-        </span>
-
-        <!-- <span class="font-overpass" *ngIf="this.isDarkTheme; else templateName"
+      </ng-template> -->
+      <!-- <span class="font-overpass" *ngIf="this.isDarkTheme; else templateName"
         >Dark Mode</span
       >
       <ng-template #templateName>Light Mode</ng-template> -->
-      </mat-slide-toggle>
+      <!-- </mat-slide-toggle> -->
     </div>
   </mat-toolbar>
   <mat-sidenav-container fxFlexFill class="example-container">

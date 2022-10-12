@@ -31,7 +31,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor-service.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AnimalsComponent } from './main/animals/animals.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegisterComponent } from './main/register/register.component'
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     LoginComponent,
     ProfileComponent,
     AnimalsComponent,
+    RegisterComponent,
     
   ],
   imports: [
