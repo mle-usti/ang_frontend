@@ -15,6 +15,11 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
+
+import { WebcamModule } from 'ngx-webcam';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -53,6 +58,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     MatTabsModule,
     MatExpansionModule,
     MatPaginatorModule,
+    MatDividerModule,
+    MatProgressBarModule,
+    WebcamModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,

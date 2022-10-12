@@ -14,7 +14,7 @@ const httpOptions = {
 export class ApiService {
   
 
-  private REST_API_SERVER = "http://localhost:8000/";
+  private REST_API_SERVER = "https://db41-121-46-64-90.in.ngrok.io/";
   constructor(private httpClient: HttpClient) { }
 
   getTypeRequest(url:string) {
@@ -34,4 +34,9 @@ export class ApiService {
       return res;
     }))
   }  
+  deleteTypeRequest(url:string) {
+    return this.httpClient.delete(this.REST_API_SERVER+url).pipe(map(res => {
+      return res;
+    }))
+  } 
 }

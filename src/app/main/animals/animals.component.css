@@ -14,7 +14,10 @@ img {
   width: auto;
   height: auto;
 }
-
+.note {
+  color: #ff8d8d;
+  font-weight: 900;
+}
 @media screen and (max-width: 1024px) {
   .animals-grid {
     grid-template-columns: repeat(3, 1fr);

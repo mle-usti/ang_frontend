@@ -1,13 +1,63 @@
 <div>
   <mat-tab-group>
-    <mat-tab label="Home">
+    <mat-tab label="Add New Animal">
       <ng-template matTabContent>
-        <div class="animals-grid my-4">
+        <div>
+          <mat-card class="example-card">
+            <mat-card-subtitle>
+              Assign Your Animal an Identity
+            </mat-card-subtitle>
+            <mat-card-title>Add Animal</mat-card-title>
+            <mat-card-content fxLayoutAlign="center">
+              <div>
+                <mat-card
+                  style="
+                    max-width: 640px;
+                    max-height: 640px;
+                    display: block;
+                    width: 640;
+                    height: 640;
+                  "
+                >
+                  <webcam *ngIf="isCam; else camNotFound"></webcam>
+                  <ng-template #camNotFound>
+                    <h2 class="note">Camera not found</h2>
+                  </ng-template>
+                </mat-card>
+              </div>
+            </mat-card-content>
+            <mat-divider inset></mat-divider>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" (click)="openCam()">
+                <mat-icon class="font-bold text-lg">add</mat-icon>
+                <span *ngIf="!isCam; else noCam">Add Animal</span>
+                <ng-template #noCam>Done</ng-template>
+              </button>
+              <button mat-raised-button color="accent">
+                <fa-icon [icon]="faUpload"></fa-icon> Upload Video
+              </button>
+            </mat-card-actions>
+            <mat-card-footer>
+              <mat-card-content fxLayoutAlign="center">
+                <mat-card-subtitle>
+                  <span class="note">Note:</span> Please Make sure that only one
+                  Animal is present in the scene.
+                </mat-card-subtitle>
+              </mat-card-content>
+              <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+            </mat-card-footer>
+          </mat-card>
+        </div>
+      </ng-template>
+    </mat-tab>
+    <mat-tab label="All Animals">
+      <ng-template matTabContent>
+        <div class="animals-grid">
           <mat-card *ngFor="let item of animalsPerPage; let i = index">
             <mat-card-header>
               <div mat-card-avatar></div>
-              <mat-card-title class="mb-4"
-                >{{ item.animal_tag }}
+              <mat-card-title class="mb-4">
+                {{ item.animal_tag }}
               </mat-card-title>
             </mat-card-header>
             <mat-card-content fxLayoutAlign="center" class="p-2">
@@ -20,7 +70,13 @@
             </mat-card-content>
 
             <mat-card-actions>
-              <button mat-raised-button color="warn">Delete</button>
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="deleteAnimal(item.animal_tag)"
+              >
+                Delete
+              </button>
             </mat-card-actions>
           </mat-card>
         </div>
@@ -34,12 +90,7 @@
         </mat-paginator>
       </ng-template>
     </mat-tab>
-    <mat-tab label="Second">
-      <ng-template matTabContent>
-        <div></div>
-      </ng-template>
-    </mat-tab>
-    <mat-tab label="Third">
+    <mat-tab label="Dashboard">
       <ng-template matTabContent>
         <div></div>
       </ng-template>
