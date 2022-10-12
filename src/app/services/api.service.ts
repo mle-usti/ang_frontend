@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/x-www-form-urlencoded',
+    'Access-Control-Allow-Origin':"*"
   }),
 }
 
@@ -14,7 +15,7 @@ const httpOptions = {
 export class ApiService {
   
 
-  private REST_API_SERVER = "https://db41-121-46-64-90.in.ngrok.io/";
+  private REST_API_SERVER = "https://9c06-121-46-64-90.in.ngrok.io/";
   constructor(private httpClient: HttpClient) { }
 
   getTypeRequest(url:string) {
