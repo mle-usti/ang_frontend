@@ -8,14 +8,36 @@
   row-gap: 1rem;
 }
 img {
-  height: 25rem;
-  width: 100%;
-  align-items: center;
+  display: block;
+  max-width: 500px;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .animals-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  img {
+    display: block;
+    max-width: 500px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .animals-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  img {
+    display: block;
+    max-width: 500px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
   }
 }
 

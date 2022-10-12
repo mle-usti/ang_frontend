@@ -3,22 +3,19 @@
     <mat-tab label="Home">
       <ng-template matTabContent>
         <div class="animals-grid my-4">
-          <mat-card
-            *ngFor="let item of animalsPerPage; let i = index"
-            class="text-center"
-          >
+          <mat-card *ngFor="let item of animalsPerPage; let i = index">
             <mat-card-header>
               <div mat-card-avatar></div>
               <mat-card-title class="mb-4"
                 >{{ item.animal_tag }}
               </mat-card-title>
             </mat-card-header>
-            <mat-card-content>
+            <mat-card-content fxLayoutAlign="center" class="p-2">
               <img
                 mat-card-image
-                class="h-20"
+                class="object-cover rounded border"
                 [src]="item?.data_loc"
-                alt="Photo of a Shiba Inu"
+                alt="Picture of Animal"
               />
             </mat-card-content>
 
@@ -30,7 +27,7 @@
         <mat-paginator
           [length]="this.animals.length"
           [pageSize]="6"
-          [pageSizeOptions]="[6, 9, 12]"
+          [pageSizeOptions]="[1, 3, 6, 9, 12, this.animals.length]"
           aria-label="Select page"
           (page)="onPageChange($event)"
         >

@@ -57,3 +57,15 @@ button {
     flex-direction: column-reverse;
   }
 }
+@media screen and (max-width: 460px) {
+  .font-overpass {
+    font-size: medium;
+    font-weight: 400;
+  }
+  .toolbarNav {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    padding: 1em;
+  }
+}
